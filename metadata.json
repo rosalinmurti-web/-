@@ -1,5 +1,5 @@
 {
   "name": "Child-APP",
-  "description": "一个全面的育儿伴侣，用于追踪成长、管理屏幕时间并接收 AI 驱动的发展建议。",
-  "requestFramePermissions": []
+  "description": "一个全面的亲子互动与管理平台，包含登录注册、成员管理、成长追踪、车载连接、日程管理、玩具追踪、视频通话及 AI 育儿建议。",
+  "requestFramePermissions": ["camera", "microphone"]
 }

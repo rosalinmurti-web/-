@@ -7,7 +7,10 @@ import {
   Sparkles, 
   ChevronRight,
   Plus,
-  Baby
+  Baby,
+  Car,
+  Gamepad2,
+  Video
 } from 'lucide-react';
 import { ChildProfile, UsageStats, GrowthRecord } from '../types';
 
@@ -75,6 +78,58 @@ export const Dashboard: React.FC<DashboardProps> = ({ child, usage, latestGrowth
           <p className="text-xs text-slate-400 mt-1">最后记录: {latestGrowth ? new Date(latestGrowth.date).toLocaleDateString() : '无'}</p>
         </motion.button>
       </div>
+
+      {/* New Feature Grid */}
+      <div className="grid grid-cols-3 gap-4">
+        <motion.button
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onNavigate('car')}
+          className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col items-center gap-2 shadow-sm"
+        >
+          <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+            <Car size={20} />
+          </div>
+          <span className="text-[10px] font-bold text-slate-600">车载连接</span>
+        </motion.button>
+        <motion.button
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onNavigate('calendar')}
+          className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col items-center gap-2 shadow-sm"
+        >
+          <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center">
+            <Clock size={20} />
+          </div>
+          <span className="text-[10px] font-bold text-slate-600">日程表</span>
+        </motion.button>
+        <motion.button
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onNavigate('toys')}
+          className="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col items-center gap-2 shadow-sm"
+        >
+          <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center">
+            <Gamepad2 size={20} />
+          </div>
+          <span className="text-[10px] font-bold text-slate-600">玩具追踪</span>
+        </motion.button>
+      </div>
+
+      {/* Video Chat Banner */}
+      <motion.button 
+        whileTap={{ scale: 0.98 }}
+        onClick={() => onNavigate('video')}
+        className="w-full bg-gradient-to-r from-emerald-500 to-teal-400 p-5 rounded-3xl flex items-center justify-between text-white shadow-lg shadow-emerald-100"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
+            <Video size={24} />
+          </div>
+          <div className="text-left">
+            <h3 className="font-bold">视频通话</h3>
+            <p className="text-sm text-white/80">与孩子实时互动</p>
+          </div>
+        </div>
+        <ChevronRight size={20} />
+      </motion.button>
 
       {/* Child Lock Status */}
       <motion.div 
